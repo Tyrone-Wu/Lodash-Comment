@@ -26,13 +26,17 @@ function slice(array, start, end) {
   start = start == null ? 0 : start;
   end = end === undefined ? length : end;
 
+  // 处理起始值为负数的情况
+  // 如果绝对值超过数组的长度，则为0；否则为从右向左的位置
   if (start < 0) {
     start = -start > length ? 0 : length + start;
   }
+  // 处理结束值大于数组长度的情况
   end = end > length ? length : end;
   if (end < 0) {
     end += length;
   }
+  // 位运算右移0表示取整数
   length = start > end ? 0 : (end - start) >>> 0;
   start >>>= 0;
 
