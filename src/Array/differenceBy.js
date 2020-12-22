@@ -1,7 +1,7 @@
-import baseDifference from './.internal/baseDifference.js'
-import baseFlatten from './.internal/baseFlatten.js'
-import isArrayLikeObject from './isArrayLikeObject.js'
-import last from './last.js'
+import baseDifference from "../../.internal/baseDifference.js";
+import baseFlatten from "../../.internal/baseFlatten.js";
+import isArrayLikeObject from "../../isArrayLikeObject.js";
+import last from "../../last.js";
 
 /**
  * This method is like `difference` except that it accepts `iteratee` which
@@ -9,6 +9,8 @@ import last from './last.js'
  * by which they're compared. The order and references of result values are
  * determined by the first array. The iteratee is invoked with one argument:
  * (value).
+ * 这个方法类似_.difference ，除了它接受一个 iteratee （注：迭代器），
+ * 调用array 和 values 中的每个元素以产生比较的标准。
  *
  * **Note:** Unlike `pullAllBy`, this method returns a new array.
  *
@@ -24,13 +26,17 @@ import last from './last.js'
  * // => [1.2]
  */
 function differenceBy(array, ...values) {
-  let iteratee = last(values)
+  let iteratee = last(values);
   if (isArrayLikeObject(iteratee)) {
-    iteratee = undefined
+    iteratee = undefined;
   }
-  return isArrayLikeObject(array)
-    ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true), iteratee)
-    : []
+  return isArrayLikeObject(array) ?
+    baseDifference(
+      array,
+      baseFlatten(values, 1, isArrayLikeObject, true),
+      iteratee
+    ) :
+    [];
 }
 
-export default differenceBy
+export default differenceBy;

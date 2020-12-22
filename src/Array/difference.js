@@ -1,6 +1,6 @@
-import baseDifference from "./.internal/baseDifference.js";
-import baseFlatten from "./.internal/baseFlatten.js";
-import isArrayLikeObject from "./isArrayLikeObject.js";
+import baseDifference from "../../.internal/baseDifference.js";
+import baseFlatten from "../../.internal/baseFlatten.js";
+import isArrayLikeObject from "../../isArrayLikeObject.js";
 
 /**
  * Creates an array of `array` values not included in the other given arrays
@@ -28,9 +28,9 @@ function difference(array, ...values) {
   // 1. 检查是否是有效的数组
   // 2. 将传入的参数当中后续几个数组扁平化
   // 3. 将扁平化之后的数组与最开始的第一个参数数组传入baseDifference函数得出答案
-  return isArrayLikeObject(array)
-    ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true))
-    : [];
+  return isArrayLikeObject(array) ?
+    baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true)) :
+    [];
 }
 
 export default difference;

@@ -4,5 +4,5 @@ This repo is the code of lodash with the comment of myself, by the time I read t
 
 ### Which is fineshed:
 
-- chunk.js
--
+- XXX
+- XX

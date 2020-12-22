@@ -1,5 +1,5 @@
-import slice from "./slice.js";
-import toInteger from "./toInteger.js";
+import slice from "../../slice.js";
+import toInteger from "../../toInteger.js";
 
 /**
  * Creates an array of elements split into groups the length of `size`.
